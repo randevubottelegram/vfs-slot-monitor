@@ -481,8 +481,23 @@ async def main() -> None:
     runner = await start_web_server()
     logger.info("Bot polling başlatılıyor... (Çıkmak için Ctrl+C)")
     try:
-        await app.run_polling(allowed_updates=Update.ALL_TYPES)
+        # `run_polling` kendi event loop'unu yönetir. Burada zaten
+        # `asyncio.run` ile çalışan bir loop olduğu için uygulamanın
+        # yaşam döngüsünü doğrudan yönetiyoruz.
+        await app.initialize()
+        if app.post_init:
+            await app.post_init(app)
+        await app.start()
+        if app.updater is None:
+            raise RuntimeError("Telegram updater başlatılamadı.")
+        await app.updater.start_polling(allowed_updates=Update.ALL_TYPES)
+        await asyncio.Event().wait()
     finally:
+        if app.updater and app.updater.running:
+            await app.updater.stop()
+        if app.running:
+            await app.stop()
+        await app.shutdown()
         await runner.cleanup()
 
 

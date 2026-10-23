@@ -1,7 +1,7 @@
 services:
-  vfs-slot-monitor:
-    type: web
-    env: docker
+  - type: web
+    name: vfs-slot-monitor
+    runtime: python
     plan: free
     region: frankfurt
     buildCommand: "pip install -r requirements.txt && playwright install chromium"
@@ -13,10 +13,8 @@ services:
         sync: false
       - key: CHECK_INTERVAL_SECONDS
         value: "300"
-        sync: false
       - key: PORT
         value: "10000"
-        sync: false
       - key: VFS_NETHERLANDS_EMAIL
         sync: false
       - key: VFS_NETHERLANDS_PASSWORD
