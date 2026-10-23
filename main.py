@@ -475,29 +475,47 @@ def build_application() -> Application:
     return app
 
 
+async def run_telegram_bot() -> None:
+    """Telegram erişimi geçici olarak kesilse bile botu yeniden bağlar."""
+    while True:
+        app = build_application()
+        try:
+            # `run_polling` kendi event loop'unu yönetir. Burada zaten
+            # `asyncio.run` ile çalışan bir loop olduğu için uygulamanın
+            # yaşam döngüsünü doğrudan yönetiyoruz.
+            await app.initialize()
+            if app.post_init:
+                await app.post_init(app)
+            await app.start()
+            if app.updater is None:
+                raise RuntimeError("Telegram updater başlatılamadı.")
+            await app.updater.start_polling(allowed_updates=Update.ALL_TYPES)
+            logger.info("Telegram botu hazır.")
+            await asyncio.Event().wait()
+        except asyncio.CancelledError:
+            raise
+        except Exception as exc:  # noqa: BLE001
+            logger.exception("Telegram bağlantısı kurulamadı: %s", exc)
+            logger.info("30 saniye sonra yeniden denenecek.")
+            await asyncio.sleep(30)
+        finally:
+            if app.updater and app.updater.running:
+                await app.updater.stop()
+            if app.running:
+                await app.stop()
+            await app.shutdown()
+
+
 async def main() -> None:
-    app = build_application()
     logger.info("Web sunucusu başlatılıyor...")
     runner = await start_web_server()
-    logger.info("Bot polling başlatılıyor... (Çıkmak için Ctrl+C)")
+    logger.info("Telegram botu başlatılıyor... (Çıkmak için Ctrl+C)")
+    bot_task = asyncio.create_task(run_telegram_bot())
     try:
-        # `run_polling` kendi event loop'unu yönetir. Burada zaten
-        # `asyncio.run` ile çalışan bir loop olduğu için uygulamanın
-        # yaşam döngüsünü doğrudan yönetiyoruz.
-        await app.initialize()
-        if app.post_init:
-            await app.post_init(app)
-        await app.start()
-        if app.updater is None:
-            raise RuntimeError("Telegram updater başlatılamadı.")
-        await app.updater.start_polling(allowed_updates=Update.ALL_TYPES)
         await asyncio.Event().wait()
     finally:
-        if app.updater and app.updater.running:
-            await app.updater.stop()
-        if app.running:
-            await app.stop()
-        await app.shutdown()
+        bot_task.cancel()
+        await asyncio.gather(bot_task, return_exceptions=True)
         await runner.cleanup()
 
 
