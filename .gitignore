@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Playwright / Camoufox
+playwright-report/
+playwright/.cache/
+camoufox/
+.cache/camoufox/
+
+# State / hassas veri
+state/
+*.db
+.env
+.proxy_rotation.json
+# countries.json dahil edilmez (kodun parçası):
+!countries.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+bot.log

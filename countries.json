@@ -1,0 +1,211 @@
+[
+  {
+    "key": "france",
+    "name": "Fransa",
+    "name_en": "France",
+    "flag": "🇫🇷",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/fra/login",
+    "group": "schengen",
+    "center": "İstanbul",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "netherlands",
+    "name": "Hollanda",
+    "name_en": "Netherlands",
+    "flag": "🇳🇱",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/nld/en/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "denmark",
+    "name": "Danimarka",
+    "name_en": "Denmark",
+    "flag": "🇩🇰",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/dnk/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "sweden",
+    "name": "İsveç",
+    "name_en": "Sweden",
+    "flag": "🇸🇪",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/swe/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "austria",
+    "name": "Avusturya",
+    "name_en": "Austria",
+    "flag": "🇦🇹",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/aut/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "belgium",
+    "name": "Belçika",
+    "name_en": "Belgium",
+    "flag": "🇧🇪",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/bel/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "czech",
+    "name": "Çekya",
+    "name_en": "Czech Republic",
+    "flag": "🇨🇿",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/cze/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "estonia",
+    "name": "Estonya",
+    "name_en": "Estonia",
+    "flag": "🇪🇪",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/est/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "finland",
+    "name": "Finlandiya",
+    "name_en": "Finland",
+    "flag": "🇫🇮",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/fin/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "switzerland",
+    "name": "İsviçre",
+    "name_en": "Switzerland",
+    "flag": "🇨🇭",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/che/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "iceland",
+    "name": "İzlanda",
+    "name_en": "Iceland",
+    "flag": "🇮🇸",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/isl/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "latvia",
+    "name": "Letonya",
+    "name_en": "Latvia",
+    "flag": "🇱🇻",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/lva/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "lithuania",
+    "name": "Litvanya",
+    "name_en": "Lithuania",
+    "flag": "🇱🇹",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/ltu/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "luxembourg",
+    "name": "Lüksemburg",
+    "name_en": "Luxembourg",
+    "flag": "🇱🇺",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/lux/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "malta",
+    "name": "Malta",
+    "name_en": "Malta",
+    "flag": "🇲🇹",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/mlt/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "norway",
+    "name": "Norveç",
+    "name_en": "Norway",
+    "flag": "🇳🇴",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/nor/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "poland",
+    "name": "Polonya",
+    "name_en": "Poland",
+    "flag": "🇵🇱",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/pol/login",
+    "group": "schengen",
+    "center": "Ankara",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "spain_bls",
+    "name": "İspanya (BLS)",
+    "name_en": "Spain (BLS)",
+    "flag": "🇪🇸",
+    "provider": "BLS",
+    "url": "https://turkiye.blsspainvisa.com/",
+    "group": "schengen",
+    "center": "İstanbul",
+    "category": "Schengen Visa"
+  },
+  {
+    "key": "bulgaria",
+    "name": "Bulgaristan",
+    "name_en": "Bulgaria",
+    "flag": "🇧🇬",
+    "provider": "VFS",
+    "url": "https://visa.vfsglobal.com/tur/en/bgr/login",
+    "group": "schengen",
+    "center": "İstanbul",
+    "category": "Schengen Visa"
+  }
+]

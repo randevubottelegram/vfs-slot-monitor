@@ -1,0 +1,31 @@
+services:
+  vfs-slot-monitor:
+    type: web
+    env: docker
+    plan: free
+    region: frankfurt
+    buildCommand: "pip install -r requirements.txt && playwright install chromium"
+    startCommand: "python main.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: CHECK_INTERVAL_SECONDS
+        value: "300"
+        sync: false
+      - key: PORT
+        value: "10000"
+        sync: false
+      - key: VFS_NETHERLANDS_EMAIL
+        sync: false
+      - key: VFS_NETHERLANDS_PASSWORD
+        sync: false
+      - key: VFS_NETHERLANDS_IMAP_APP_PASSWORD
+        sync: false
+      - key: VFS_NORWAY_EMAIL
+        sync: false
+      - key: VFS_NORWAY_PASSWORD
+        sync: false
+      - key: VFS_NORWAY_IMAP_APP_PASSWORD
+        sync: false
