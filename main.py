@@ -523,8 +523,16 @@ async def health_handler(request):
     return web.Response(text="OK")
 
 
+async def index_handler(request):
+    return web.Response(
+        text="VFS Slot Monitor çalışıyor. Sağlık kontrolü: /health",
+        content_type="text/plain",
+    )
+
+
 async def start_web_server():
     app_web = web.Application()
+    app_web.router.add_get("/", index_handler)
     app_web.router.add_get("/health", health_handler)
     runner = web.AppRunner(app_web)
     await runner.setup()
