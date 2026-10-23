@@ -180,12 +180,23 @@ async def cmd_durum(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not country:
         await update.message.reply_text("Ülke bulunamadı.")
         return
-    await update.message.reply_text("🔍 Durum kontrol ediliyor, lütfen bekleyin...")
-    result = await controller.monitor.check_once()
-    await update.message.reply_text(
-        status_text(country, result["status"], result["detail"]),
-        parse_mode=ParseMode.MARKDOWN,
-    )
+    msg = await update.message.reply_text("🔍 Durum kontrol ediliyor, lütfen bekleyin...")
+    try:
+        result = await asyncio.wait_for(controller.monitor.check_once(), timeout=110)
+        await msg.edit_text(
+            status_text(country, result["status"], result["detail"]),
+            parse_mode=ParseMode.MARKDOWN,
+        )
+    except asyncio.TimeoutError:
+        await msg.edit_text(
+            "⏰ Kontrol zaman aşımına uğradı (110 saniye). Camoufox tarayıcısı başlatılıyor olabilir. Birkaç saniye sonra tekrar deneyin.",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+    except Exception as exc:  # noqa: BLE001
+        await msg.edit_text(
+            f"❌ Hata: {str(exc)[:200]}",
+            parse_mode=ParseMode.MARKDOWN,
+        )
 
 
 async def cmd_durdur(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
